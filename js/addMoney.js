@@ -9,7 +9,7 @@ document
 
     // 2. Convert amount to a number (using parseFloat for decimal support)
     const addMoney = parseFloat(inputAddMoney);
-    onst accountPin = parseInt(inputAccountPin);
+    const accountPin = parseInt(inputAccountPin);
 
     // 3. Validation: Check if the amount is a valid number and greater than zero
     if (isNaN(addMoney) || addMoney <= 0) {
