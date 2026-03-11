@@ -9,7 +9,7 @@ document
 
     // 2. Convert amount to a number (using parseFloat for decimal support)
     const addMoney = parseFloat(inputAddMoney);
-    const accountPin = inputAccountPin;
+    onst accountPin = parseInt(inputAccountPin);
 
     // 3. Validation: Check if the amount is a valid number and greater than zero
     if (isNaN(addMoney) || addMoney <= 0) {
@@ -18,7 +18,7 @@ document
     }
 
     // 4. Verification: Check the security PIN (Standard check: 1234)
-    if (accountPin === "1234") {
+    if (accountPin === 1234) {
       const balanceElement = document.getElementById("total-balance");
 
       const balanceText = balanceElement.innerText;
