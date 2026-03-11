@@ -22,10 +22,9 @@ document
       // Clear the input fields after successful transaction
       document.getElementById("input-add-money").value = "";
       document.getElementById("input-account-pin").value = "";
-    } 
-    else {
+      alert("Successfully added TK-" + addMoney);
+    } else {
       // Error handling for incorrect PIN
       alert("Invalid PIN! Please try again.");
     }
-    alert("Successfully added TK-" + addMoney);
   });
