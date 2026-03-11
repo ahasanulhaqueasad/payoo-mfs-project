@@ -4,42 +4,35 @@ document
     event.preventDefault();
 
     // 1. Get input values
-    const inputCashOut = document.getElementById("input-cashout").value;
-    const inputAccountPin = document.getElementById("input-cashout-pin").value;
+    const cashOut = getInputFieldValueById("input-cashout");
+    const accountPin = getInputFieldValueById("input-cashout-pin");
+    const mainBalance = getTextValueById("total-balance");
 
-    // 2. Convert values (parseFloat allows for decimal transactions)
-    const cashOutAmount = parseFloat(inputCashOut);
-    const accountPin = parseInt(inputAccountPin);
-
-    // 3. Validation: Ensure the amount is a valid number
-    if (isNaN(cashOutAmount) || cashOutAmount <= 0) {
+    // 2. Validation: amount check
+    if (isNaN(cashOut) || cashOut <= 0) {
       alert("Please enter a valid amount to withdraw.");
       return;
     }
 
-    // 4. Verification: Check PIN (Security Check)
-    if (accountPin === 1234) {
-      const balanceElement = document.getElementById("total-balance");
-
-      // Get current balance and remove formatting (৳ and commas)
-      const currentBalance = parseFloat(balanceElement.innerText);
-
-      // 5. Logical Check: Does the user have enough money?
-      if (cashOutAmount > currentBalance) {
-        alert("Insufficient balance! You cannot withdraw more than you have.");
-        return;
-      }
-
-      // 6. Final Step: Subtract and update UI
-      const newBalance = currentBalance - cashOutAmount;
-      balanceElement.innerText = newBalance;
-
-      // Clear input fields
-      document.getElementById("input-cashout").value = "";
-      document.getElementById("input-cashout-pin").value = "";
-
-      alert("Cash Out of TK-" + cashOutAmount + " was successful.");
-    } else {
+    // 3. PIN verification (FIRST)
+    if (accountPin !== 1234) {
       alert("Invalid PIN! Please try again.");
+      return;
     }
+
+    // 4. Balance check
+    if (cashOut > mainBalance) {
+      alert("Insufficient balance! You cannot withdraw more than you have.");
+      return;
+    }
+
+    // 5. Transaction
+    const newBalance = mainBalance - cashOut;
+    document.getElementById("total-balance").innerText = newBalance;
+
+    // Clear input fields
+    document.getElementById("input-cashout").value = "";
+    document.getElementById("input-cashout-pin").value = "";
+
+    alert("Cash Out of TK-" + cashOut + " was successful.");
   });

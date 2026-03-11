@@ -51,13 +51,22 @@
           </div>
 
           <div class="flex w-full gap-2">
-            <button class="btn btn-info flex-1">Add Money</button>
-            <button class="btn btn-success flex-1">Cash Out</button>
-            <button class="btn btn-warning flex-1">Histroy</button>
+            <button id="show-addmoney-form" class="btn btn-info flex-1">
+              Add Money
+            </button>
+            <button id="show-cashout-form" class="btn btn-success flex-1">
+              Cash Out
+            </button>
+            <button
+              id="show-transaction-history"
+              class="btn btn-warning flex-1"
+            >
+              Transaction Histroy
+            </button>
           </div>
 
           <!-- add money section start -->
-          <div class="">
+          <div id="add-money-form" class="">
             <div class="form-control w-full">
               <label class="label">
                 <span class="label-text font-bold text-gray-600"
@@ -124,12 +133,10 @@
           <!-- add money section end  -->
 
           <!-- Cashout section start -->
-          <div>
+          <div id="cash-out-form" class="hidden">
             <div class="form-control w-full">
               <label class="label">
-                <span class="label-text font-bold text-gray-600"
-                  >Cash Out</span
-                >
+                <span class="label-text font-bold text-gray-600">Cash Out</span>
               </label>
               <div class="relative">
                 <input
@@ -189,6 +196,32 @@
             </div>
           </div>
           <!-- Cashout section end  -->
+
+          <!-- transaction history section start  -->
+          <div id="transaction-card" class="hidden">
+            <div class="card bg-white shadow-md mt-6">
+              <div class="card-body">
+                <h2 class="card-title text-lg font-bold">
+                  Transaction History
+                </h2>
+
+                <!-- Transaction List -->
+                <div id="transaction-container" class="space-y-3 mt-4">
+                  <!-- Example Transaction -->
+                  <div
+                    class="flex justify-between items-center bg-gray-100 p-3 rounded-lg"
+                  >
+                    <div>
+                      <p class="font-medium">Add Money</p>
+                      <p class="text-sm text-gray-500">Amount: TK-500</p>
+                    </div>
+                    <span class="text-green-600 font-semibold">Success</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- transaction history section end  -->
           <a
             href="#"
             class="text-center text-sm mt-6 text-gray-400 hover:text-primary transition-colors font-medium"

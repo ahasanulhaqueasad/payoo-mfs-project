@@ -9,3 +9,13 @@ function getTextValueById(id) {
   const textValue = parseInt(textValueNumber);
   return textValue;
 }
+
+function showSectionById(id) {
+  // hide all the sections
+  document.getElementById("add-money-form").classList.add("hidden");
+  document.getElementById("cash-out-form").classList.add("hidden");
+  document.getElementById("transaction-card").classList.add("hidden");
+
+  // show the section when you provide id as a prameter
+  document.getElementById(id).classList.remove("hidden");
+}
