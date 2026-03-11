@@ -30,6 +30,21 @@ document
     const newBalance = mainBalance - cashOut;
     document.getElementById("total-balance").innerText = newBalance;
 
+    // add to transaction history
+    const div = document.createElement("div");
+    div.innerHTML = `
+  <div class="text-center bg-gray-50 p-3 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition duration-200">
+    
+    <!-- Left Section: Transaction Info -->
+    <div>
+      <p class="font-medium text-green-600">Add Money: ${cashOut}</p>
+      <span class="text-blue-600 font-semibold">New Balance: ${newBalance} TK</span>
+      <p class="text-xs text-gray-400 mt-0.5">${new Date().toLocaleString()}</p>
+    </div>
+  </div>
+`;
+    document.getElementById("transaction-container").appendChild(div);
+
     // Clear input fields
     document.getElementById("input-cashout").value = "";
     document.getElementById("input-cashout-pin").value = "";

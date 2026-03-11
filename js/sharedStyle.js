@@ -19,3 +19,4 @@ function showSectionById(id) {
   // show the section when you provide id as a prameter
   document.getElementById(id).classList.remove("hidden");
 }
+
